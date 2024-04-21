@@ -7,7 +7,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <!--Personal CSS-->
         <link rel="stylesheet" href="css/darkMode.css" type="text/css"/>
-        <title>Heed Scratchers - Daily Challenges</title>
+        <title>Heed Scratchers - Daily Puzzles</title>
     </head>
     <!--Navigation Bar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -61,6 +61,54 @@
         </div>
       </nav>
     <body>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="container-fluid text-center">
+            <br>
+            <h1>Welcome to Heed Scratchers!</h1>
+            <p>Complete puzzles to earn points, achievements, and to climb the leaderboard!</p>
+            <p>Browse our selection of Sudoku, Character Searches and much more</p>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-dark" type="button">Start Random Puzzle</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="container-sm">
+        <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          </div>
+          <div class="carousel-inner text-center">
+            <div class="carousel-item active" data-bs-interval="5000">
+              <h2>Interactive Sudoku</h2>
+              <div class="d-flex justify-content-center">
+                <a href="puzzles/sudoku/sudoku.html">
+                  <img src="images/paper_sudoku-sm.jpg" class="d-block w-100" alt="paper sudoku stock photo">
+                </a>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <h2>Character Search Puzzles</h2>
+              <a href="puzzles/findme/wheresWally.html">
+                <img src="images/wally_banner.jpg" class="d-block w-100" alt="character search example">
+              </a>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      
       <script src="js/player.js"></script>
       <!--Bootstrap 5.2 JavaScript from CDN-->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

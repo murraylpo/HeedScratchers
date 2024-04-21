@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Bootstrap 5 CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link href="../../css/darkMode.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="sudoku.css" type="text/css"/>
+        <title>Sudoku - Heed Scratchers</title>
+    </head>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../../images/thinking_emoji_static.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-mid">
+                Heed Scratchers
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/puzzles/puzzles.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Puzzles
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="sudoku.html">Sudoku</a></li>
+                        <li><a class="dropdown-item" href="./pages/sudoku_test.html">Riddles</a></li>
+                        <li><a class="dropdown-item" href="./pages/sudoku_test.html">Binary Puzzles</a></li>
+                        <li><a class="dropdown-item" href="../findme/wheresWally.html">Find the Item</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Leaderboard (Coming Soon)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/about.html">About</a>
+                    </li>
+                </ul>
+                <span class="navbar-text ms-auto" id="welcome">
+                    <script type="text/javascript">
+                        document.getElementById("welcome").innerHTML = "Welcome, " + localStorage.getItem("name") + "!";
+                    </script>
+                </span>
+                <span class="navbar-text ms-auto" id="totalPoints">
+                    <script type="text/javascript">
+                        if (localStorage.getItem("points") == 100) {
+                            document.getElementById("totalPoints").innerHTML = "&#x1f525; Points: &#x1f4af; ";
+                        } else {
+                            document.getElementById("totalPoints").innerHTML = "&#x1f525; Points: " + localStorage.getItem("points");
+                        }
+                    </script>
+                </span>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <div id="liveAlertPlaceholder"></div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <table id="sudoku">
+                        <tr>
+                        <td><input id="cell-0"  type="text" oninput="this.value=checkInput(this.value)" value="5" disabled></td>
+                        <td><input id="cell-1"  type="text" oninput="this.value=checkInput(this.value)" value="3" disabled></td>
+                        <td><input id="cell-2"  type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-3"  type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-4"  type="text" oninput="this.value=checkInput(this.value)" value="7" disabled></td>
+                        <td><input id="cell-5"  type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-6"  type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-7"  type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-8"  type="text" oninput="this.value=checkInput(this.value)"></td>
+                        </tr>
+                
+                        <tr>
+                        <td><input id="cell-9"  type="text" oninput="this.value=checkInput(this.value)" value="6" disabled></td>
+                        <td><input id="cell-10" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-11" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-12" type="text" oninput="this.value=checkInput(this.value)" value="1" disabled></td>
+                        <td><input id="cell-13" type="text" oninput="this.value=checkInput(this.value)" value="9" disabled></td>
+                        <td><input id="cell-14" type="text" oninput="this.value=checkInput(this.value)" value="5" disabled></td>
+                        
+                        <td><input id="cell-15" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-16" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-17" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        </tr>
+                
+                        <tr>          
+                        <td><input id="cell-18" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-19" type="text" oninput="this.value=checkInput(this.value)" value="9" disabled></td>
+                        <td><input id="cell-20" type="text" oninput="this.value=checkInput(this.value)" value="8" disabled></td>
+                        
+                        <td><input id="cell-21" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-22" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-23" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-24" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-25" type="text" oninput="this.value=checkInput(this.value)" value="6" disabled></td>
+                        <td><input id="cell-26" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        </tr>
+                
+                        <tr>          
+                        <td><input id="cell-27" type="text" oninput="this.value=checkInput(this.value)" value="8" disabled></td>
+                        <td><input id="cell-28" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-29" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-30" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-31" type="text" oninput="this.value=checkInput(this.value)" value="6" disabled></td>
+                        <td><input id="cell-32" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-33" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-34" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-35" type="text" oninput="this.value=checkInput(this.value)" value="3" disabled></td>
+                        </tr>
+                
+                        <tr>          
+                        <td><input id="cell-36" type="text" oninput="this.value=checkInput(this.value)" value="4" disabled></td>
+                        <td><input id="cell-37" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-38" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-39" type="text" oninput="this.value=checkInput(this.value)" value="8" disabled></td>
+                        <td><input id="cell-40" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-41" type="text" oninput="this.value=checkInput(this.value)" value="3" disabled></td>
+                        
+                        <td><input id="cell-42" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-43" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-44" type="text" oninput="this.value=checkInput(this.value)" value="1" disabled></td>
+                        </tr>
+                
+                        <tr>          
+                        <td><input id="cell-45" type="text" oninput="this.value=checkInput(this.value)" value="7" disabled></td>
+                        <td><input id="cell-46" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-47" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-48" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-49" type="text" oninput="this.value=checkInput(this.value)" value="2" disabled></td>
+                        <td><input id="cell-50" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-51" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-52" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-53" type="text" oninput="this.value=checkInput(this.value)" value="6" disabled></td>
+                        </tr>
+                
+                        <tr>          
+                        <td><input id="cell-54" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-55" type="text" oninput="this.value=checkInput(this.value)" value="6" disabled></td>
+                        <td><input id="cell-56" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-57" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-58" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-59" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-60" type="text" oninput="this.value=checkInput(this.value)" value="2" disabled></td>
+                        <td><input id="cell-61" type="text" oninput="this.value=checkInput(this.value)" value="8" disabled></td>
+                        <td><input id="cell-62" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        </tr>
+                
+                        <tr>          
+                        <td><input id="cell-63" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-64" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-65" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-66" type="text" oninput="this.value=checkInput(this.value)" value="4" disabled></td>
+                        <td><input id="cell-67" type="text" oninput="this.value=checkInput(this.value)" value="1" disabled></td>
+                        <td><input id="cell-68" type="text" oninput="this.value=checkInput(this.value)" value="9" disabled></td>
+                        
+                        <td><input id="cell-69" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-70" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-71" type="text" oninput="this.value=checkInput(this.value)" value="5" disabled></td>
+                        </tr>
+                
+                        <tr>          
+                        <td><input id="cell-72" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-73" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-74" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-75" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-76" type="text" oninput="this.value=checkInput(this.value)" value="8" disabled></td>
+                        <td><input id="cell-77" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        
+                        <td><input id="cell-78" type="text" oninput="this.value=checkInput(this.value)"></td>
+                        <td><input id="cell-79" type="text" oninput="this.value=checkInput(this.value)" value="7" disabled></td>
+                        <td><input id="cell-80" type="text" oninput="this.value=checkInput(this.value)" value="9" disabled></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <button type="button" class="btn btn-success" id="solve" onclick="main(document.getElementById('sudoku'))">
+                        Solve Sudoku
+                    </button>
+                    <button type="button" class="btn btn-success" id="points" onclick="addPoints(10)">
+                        Add Points
+                    </button>
+                </div>
+                <div class="col">
+                    <h2>Not sure how to play?</h2>
+                    <h2>This 1 minute tutorial will teach you!</h2>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/8zRXDsGydeQ?si=kmwRFu4dzAR9J0RT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <script src="sudoku_solver.js"></script>
+        <script src="../../js/player.js"></script>
+        <!--Bootstrap 5.2 JavaScript from CDN-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Bootstrap 5 CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link href="../../css/darkMode.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="sudoku.css" type="text/css"/>
+        <title>Find Me - Heed Scratchers</title>
+    </head>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../../images/thinking_emoji_static.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-mid">
+                Heed Scratchers
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/puzzles/puzzles.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Puzzles
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="wheresWally.html">Character Search Puzzles</a></li>
+                        <li><a class="dropdown-item" href="../sudoku/sudoku.html">Sudoku</a></li>
+                        <li><a class="dropdown-item" href="./pages/sudoku_test.html">Riddles</a></li>
+                        <li><a class="dropdown-item" href="./pages/sudoku_test.html">Binary Puzzles</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Leaderboard (Coming Soon)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pages/about.html">About</a>
+                    </li>
+                </ul>
+                <span class="navbar-text ms-auto" id="welcome">
+                    <script type="text/javascript">
+                        document.getElementById("welcome").innerHTML = "Welcome, " + localStorage.getItem("name") + "!";
+                    </script>
+                </span>
+                <span class="navbar-text ms-auto" id="totalPoints">
+                    <script type="text/javascript">
+                        if (localStorage.getItem("points") == 100) {
+                            document.getElementById("totalPoints").innerHTML = "&#x1f525; Points: &#x1f4af;";
+                        } else {
+                            document.getElementById("totalPoints").innerHTML = "&#x1f525; Points: " + localStorage.getItem("points");
+                        }
+                    </script>
+                </span>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="container-fluid text-center">
+                        <h1>Find Me! - Character Search Puzzles</h1>
+                        <p>Our current selection of character search puzzles is based on Where's Wally! (shown below)</p>
+                        <p>Find Wally at the different locations and click him for points!</p>
+                        <img src="wally50.png" class="img-responsive" alt="Wally Character">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="wheres_wally_1.jpg" class="card-img-top" alt="Beach Thumbnail">
+                                    <div class="card-body">
+                                        <h5 class="card-title">On The Beach</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Reward: 100 points</h6>
+                                        <p class="card-text">Are you able to find Wally on the beach?</p>
+                                        <a href="wally_beach.html" class="btn btn-primary">Start</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="wheres_wally_2.jpg" class="card-img-top" alt="Racetrack Thumbnail">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Racetrack</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Reward: 100 points</h6>
+                                        <p class="card-text">It's chaos at the racetrack! Can you find Wally amongst the madness?</p>
+                                        <a href="" class="btn btn-primary">Start</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="wheres_wally_1.jpg" class="card-img-top" alt="Beach Thumbnail">
+                                    <div class="card-body">
+                                        <h5 class="card-title">On The Beach</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Reward: 100 points</h6>
+                                        <p class="card-text">Are you able to find Wally on the beach?</p>
+                                        <a href="wally_beach.html" class="btn btn-primary">Start</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="wheres_wally_2.jpg" class="card-img-top" alt="Racetrack Thumbnail">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Racetrack</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Reward: 100 points</h6>
+                                        <p class="card-text">It's chaos at the racetrack! Can you find Wally amongst the madness?</p>
+                                        <a href="" class="btn btn-primary">Start</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        
+        <script src="../../js/player.js"></script>
+        <!--Bootstrap 5.2 JavaScript from CDN-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    </body>
+</html>
