@@ -37,7 +37,7 @@ const alert = (message, type) => {
   const wrapper = document.createElement('div')
   wrapper.innerHTML = [
     `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message} <a href="/index.html" class="alert-link">Return home for more puzzles.</a>
+    `   <div>${message} <a href="/HeedScratchers/index.html" class="alert-link">Return home for more puzzles.</a>
     </div>`,
     '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
     '</div>'
