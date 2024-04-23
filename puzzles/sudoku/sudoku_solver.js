@@ -1,3 +1,5 @@
+let cellChanges = 0;
+
 function tableToArray(table) {
     let result = [].reduce.call(table.rows, function (result, row) {
         result.push([].reduce.call(row.cells, function (res, cell) {
@@ -87,6 +89,7 @@ function solve(board) {
             let inputCell = table.rows[row].cells[col].children[0];
             inputCell.value = num;
             inputCell.classList.add("input-solved"); // add class css
+            cellChanges++;
             solve(board);
         }
     } while (++num <= 9)
@@ -101,4 +104,10 @@ function solve(board) {
 function main(table) {
     let board = tableToArray(table);
     solve(board);
+    if (cellChanges = 0) {
+        addPoints(500);
+        play();
+    } else {
+        console.log("Cell changes was higher than zero");
+    }
 }
