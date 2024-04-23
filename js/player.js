@@ -30,6 +30,13 @@ if (!localStorage.getItem("name")) {
     populateStorage();
 }
 
+// Audio Functionality
+function play() {
+  var audio = document.getElementById("audio");
+  audio.volume = 0.1;
+  audio.play();
+}
+
 // Boostrap code for creating dismissable success alerts
 const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 
