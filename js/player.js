@@ -1,3 +1,21 @@
+// Random Puzzle Button
+function randomPuzzle() {
+  let arrayOfPuzzles = [
+    "/HeedScratchers/puzzles/hiddenObjects/wally_beach.html",
+    "/HeedScratchers/puzzles/hiddenObjects/wally_racetrack.html",
+    "/HeedScratchers/puzzles/hiddenObjects/wally_alps.html",
+    "/HeedScratchers/puzzles/hiddenObjects/wally_space.html",
+    "/HeedScratchers/puzzles/sudoku/sudoku.html"
+  ];
+  let puzzle = arrayOfPuzzles[Math.floor(Math.random() * arrayOfPuzzles.length)];
+  window.location.replace(puzzle);
+}
+
+// Player Profile Functions
+if (!localStorage.getItem("name")) {
+  populateStorage();
+}
+
 function populateStorage() {
     let person = prompt("Please enter your name");
     if (person != null) {
@@ -11,7 +29,6 @@ function addPoints(amount) {
     let points = Number(localStorage.getItem("points"));
     points += amount
     localStorage.setItem("points", points);
-    sleep(300);
 }
 
 function resetPoints() {
@@ -19,15 +36,7 @@ function resetPoints() {
 }
 
 function removeProfile() {
-    localStorage.clear()
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-if (!localStorage.getItem("name")) {
-    populateStorage();
+    localStorage.clear();
 }
 
 // Audio Functionality
