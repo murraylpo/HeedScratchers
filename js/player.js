@@ -12,12 +12,8 @@ function randomPuzzle() {
 }
 
 // Player Profile Functions
-if (!localStorage.getItem("name")) {
-  populateStorage();
-}
-
 function populateStorage() {
-    let person = prompt("Please enter your name");
+    let person = document.getElementById("usernamePrompt").value;
     if (person != null) {
         localStorage.setItem("name", person);
         localStorage.setItem("points","0");
